@@ -1,6 +1,8 @@
 package com.geekday;
 
+import com.geekday.common.Listeners;
 import com.geekday.customer.CustomerRepository;
+import com.geekday.messaging.Producer;
 import com.geekday.web.CustomerResource;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -11,6 +13,12 @@ public class RestServer {
 
     public static void main(String[] args) throws Exception {
         CustomerRepository.initialize();
+
+        EventStore.initialize();
+
+        Producer.getInstance();
+
+        Listeners.initialize();
 
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);

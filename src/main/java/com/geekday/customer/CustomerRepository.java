@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import static com.geekday.DatabaseUtils.getConnection;
+
 public class CustomerRepository {
 
     public static void initialize() {
@@ -20,14 +22,6 @@ public class CustomerRepository {
             throw new RuntimeException(e);
         }
 
-    }
-
-    private static Connection getConnection() {
-        try {
-            return DriverManager.getConnection("jdbc:hsqldb:mem:customer", "sa", "");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public void save(Customer customer) {

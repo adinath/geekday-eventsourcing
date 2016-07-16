@@ -1,8 +1,19 @@
 package com.geekday.customer;
 
 public class Profile {
-    String name = "test";
-    String email = "test@test.com";
+    private final String name;
+    private final String email;
+    private final String address;
+
+    public Profile() {
+        this(null, null);
+    }
+
+    public Profile(String name, String address) {
+        this.email = "test@test.com";
+        this.name = name;
+        this.address = address;
+    }
 
     public String getName() {
         return name;
@@ -12,11 +23,4 @@ public class Profile {
         return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }
