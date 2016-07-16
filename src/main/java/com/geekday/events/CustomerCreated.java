@@ -5,6 +5,7 @@ public class CustomerCreated {
     private final String name;
     private final String address;
 
+    @SuppressWarnings("unused")
     public CustomerCreated() {
         this(null, null);
     }
