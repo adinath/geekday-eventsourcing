@@ -8,7 +8,6 @@ import com.geekday.events.CustomerCreated;
 public class CustomerCreatedSubscriber extends DomainEventSubscriber<CustomerCreated> {
 
     public CustomerCreatedSubscriber() {
-        super("CustomerCreated");
     }
 
     @Override

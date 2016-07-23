@@ -12,11 +12,11 @@ public abstract class DomainEventSubscriber<T> {
     private final Class<T> eventType;
     private Consumer consumer;
 
-    protected DomainEventSubscriber(String topic) {
+    protected DomainEventSubscriber() {
         mapper = new ObjectMapper();
         this.eventType = (Class<T>) ((ParameterizedType) getClass()
                 .getGenericSuperclass()).getActualTypeArguments()[0];
-        this.consumer = new Consumer(topic);
+        this.consumer = new Consumer(eventType.getSimpleName());
         Thread listenerThread = new Thread(new Listener());
         listenerThread.start();
     }
